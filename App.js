@@ -1,8 +1,19 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+// TO START, type "expo init FolderName" in Terminal, then choose blank template
+// Assets folder - for images, audio, video, etc.
+// "View" = like a div; gets mapped to native widgets when we compile the app - UIView (if we build for iOS), or Android View
+// "Text" = displays text on a screen
+// In React Native, use building blocks/components rather than HTML elements
+// By default, RN uses function components
+// "npm start" - opens browser (Metro Bundler - JS bundler for RN - compiles all JS into single file)
+// "Publish or republish project" - to Expo - much easier than going through app stores, but not for production
+// "Run on iOS simulator" - Xcode (app store)
+
+import { StatusBar } from "expo-status-bar";
+import React from "react";
+import { StyleSheet, Text, View } from "react-native";
 
 export default function App() {
+  // Return a JSX expression
   return (
     <View style={styles.container}>
       <Text>Open up App.js to start working on your app!</Text>
@@ -11,11 +22,12 @@ export default function App() {
   );
 }
 
+// This isn't CSS; they're just JS properties
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
