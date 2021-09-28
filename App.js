@@ -7,6 +7,10 @@
 // "npm start" - opens browser (Metro Bundler - JS bundler for RN - compiles all JS into single file)
 // "Publish or republish project" - to Expo - much easier than going through app stores, but not for production
 // "Run on iOS simulator" - Xcode (app store)
+// Ctrl + d, Cmd + d to open developer menu on iPhone simulator
+// "Run on Android device/emulator" - ran this again when it stopped updating with changes to the code, and this seemed to fix it...
+// Cmd + m for developer menu
+// On physical phone, shake for developer menu
 
 import { StatusBar } from "expo-status-bar";
 import React from "react";
@@ -16,7 +20,7 @@ export default function App() {
   // Return a JSX expression
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      <Text>Hello World!!! (Newer...3.2)</Text>
       <StatusBar style="auto" />
     </View>
   );
