@@ -14,7 +14,7 @@
 
 // import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, View, SafeAreaView, Image, TouchableWithoutFeedback, TouchableOpacity, TouchableHighlight, TouchableNativeFeedback, Button, Alert, Platform, StatusBar } from "react-native";
+import { StyleSheet, Text, View, SafeAreaView, Image, TouchableWithoutFeedback, TouchableOpacity, TouchableHighlight, TouchableNativeFeedback, Button, Alert, Platform, StatusBar, Dimensions } from "react-native";
 
 export default function App() {
   console.log("App executed :)..."); // Shows in terminal where app is running (once for each virtual emulator) - can also click on the devide in localhost:19002 to see the logs
@@ -38,31 +38,49 @@ export default function App() {
 
   // console.log(require('./assets/rainbow.jpeg')) // prints a #, which is the reference to the image
 
+  console.log(Dimensions.get("screen"));
+
+
   return (
       //  <SafeAreaView style={styles.container}>
       //  <SafeAreaView style={{ backgroundColor: "dodgerblue" }}>
       //  <SafeAreaView style={containerStyle}>
       // Object on right overwrites properties of object on left
       // SafeAreaView only works on iOS, has no effect on Android - add padding manually @ top (Platform module) - Actually, I think it does work on Android...
-       <SafeAreaView style={[styles.container, containerStyle]}>
-        {/* Buttons have different defaults (e.g., colour) on Android/iOS; changing "color" changes background on Android and text on iOS */}
-        <Button 
-          color="rebeccapurple"
-          title="Click Me" 
-          // onPress={() => console.log("Button clicked")}
-          // onPress={() => alert("Button clicked!!")}
-          onPress={() => 
-            // Alert.alert("My Title", "My Message", [
-            //   {text: "Yep", onPress: () => console.log("Yep pushed")},
-            //   {text: "Nope", onPress: () => console.log("Nope pushed")}
-            // ])
-            // Prints out whatever's entered into the prompt
-            // Currently only works for iOS
-            Alert.prompt("My prompt title", "My prompt message", text => console.log(text))
-        }
-        />
-       </SafeAreaView>
+      //  <SafeAreaView style={[styles.container, containerStyle]}>
+      //   {/* Buttons have different defaults (e.g., colour) on Android/iOS; changing "color" changes background on Android and text on iOS */}
+      //   <Button 
+      //     color="rebeccapurple"
+      //     title="Click Me" 
+      //     // onPress={() => console.log("Button clicked")}
+      //     // onPress={() => alert("Button clicked!!")}
+      //     onPress={() => 
+      //       // Alert.alert("My Title", "My Message", [
+      //       //   {text: "Yep", onPress: () => console.log("Yep pushed")},
+      //       //   {text: "Nope", onPress: () => console.log("Nope pushed")}
+      //       // ])
+      //       // Prints out whatever's entered into the prompt
+      //       // Currently only works for iOS
+      //       Alert.prompt("My prompt title", "My prompt message", text => console.log(text))
+      //   }
+      //   />
+      //  </SafeAreaView>
 
+// Layouts
+    <SafeAreaView style={styles.container}>
+      <View style={{
+        backgroundColor: 'dodgerblue',
+        // #s = Density-Independent Pixels (abstract units; not pixels) - this means they'll look almost the same size across different devices
+        // width: 150,
+        width: "50%",
+        height: 70
+        // Can use Dimensions API to fine-tune the size of a component according to the size of a screen
+        // "Window" is a bit smaller than screen on Android (only the visible part); they're the same on iOS
+        // This API doesn't respond to orientation changes
+      }}>
+        <Text>hi</Text>
+      </View>
+    </SafeAreaView>
   );
 }
 
