@@ -14,7 +14,7 @@
 
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, View, SafeAreaView, Image, TouchableWithoutFeedback, TouchableOpacity, TouchableHighlight, TouchableNativeFeedback, Button } from "react-native";
+import { StyleSheet, Text, View, SafeAreaView, Image, TouchableWithoutFeedback, TouchableOpacity, TouchableHighlight, TouchableNativeFeedback, Button, Alert } from "react-native";
 
 export default function App() {
   console.log("App executed :)..."); // Shows in terminal where app is running (once for each virtual emulator) - can also click on the devide in localhost:19002 to see the logs
@@ -39,19 +39,37 @@ export default function App() {
   // console.log(require('./assets/rainbow.jpeg')) // prints a #, which is the reference to the image
 
   return (
-       <SafeAreaView style={styles.container}>
+      //  <SafeAreaView style={styles.container}>
+      //  <SafeAreaView style={{ backgroundColor: "dodgerblue" }}>
+      //  <SafeAreaView style={containerStyle}>
+      // Object on right overwrites properties of object on left
+       <SafeAreaView style={[styles.container, containerStyle]}>
         {/* Buttons have different defaults (e.g., colour) on Android/iOS; changing "color" changes background on Android and text on iOS */}
         <Button 
           color="orange"
           title="Click Me" 
-          onPress={() => console.log("Button clicked")}
+          // onPress={() => console.log("Button clicked")}
+          // onPress={() => alert("Button clicked!!")}
+          onPress={() => 
+            // Alert.alert("My Title", "My Message", [
+            //   {text: "Yep", onPress: () => console.log("Yep pushed")},
+            //   {text: "Nope", onPress: () => console.log("Nope pushed")}
+            // ])
+            // Prints out whatever's entered into the prompt
+            // Currently only works for iOS
+            Alert.prompt("My prompt title", "My prompt message", text => console.log(text))
+        }
         />
        </SafeAreaView>
 
   );
 }
 
+const containerStyle = {backgroundColor: "pink"}
+
 // This isn't CSS; they're just JS properties
+// Best to use this StyleSheet API to define styles (rather than inline, etc.)
+// Can move styles into a separate file and import, but it's conventional to leave them directly below the component like this.
 const styles = StyleSheet.create({
   container: {
     flex: 1,
