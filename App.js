@@ -14,7 +14,7 @@
 
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, SafeAreaView, Image } from "react-native";
 
 export default function App() {
   console.log("App executed :)..."); // Shows in terminal where app is running (once for each virtual emulator) - can also click on the devide in localhost:19002 to see the logs
@@ -33,13 +33,23 @@ export default function App() {
   // Publishing to Expo means it's available to anyone who has Expo client
   // From Metro Bundler or from Terminal - "expo publish"
 
-  let x = 1;
+  // let x = 1;
+  const handlePress = () => console.log("Pressed it")
+
+  // console.log(require('./assets/rainbow.jpeg')) // prints a #, which is the reference to the image
 
   return (
-    <View style={styles.container}>
-      <Text>Hello World!!! (Newer...3.5) Finally updated again.</Text>
+    // Can use View or SafeAreaView (avoids the phone notch area)
+    // <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
+      <Text numberOfLines={1} onPress={handlePress}>
+      {/* <Text numberOfLines={1} onPress={() => console.log("Text clicked")}> */}
+        Hello World!!! Time to learn! Hello World!!! Time to learn! Hello World!!! Time to learn! Hello World!!! Time to learn! Hello World!!! Time to learn! Hello World!!! Time to learn! Hello World!!! Time to learn! Hello World!!! Time to learn! Hello World!!! Time to learn! Hello World!!! Time to learn!</Text>
+        {/* Best to only use static images for assets that need to be shipped with the app, like icon/splash screen - otherwise, download */}
+        <Image source={require('./assets/rainbow.jpeg')} style={styles.image} />
       <StatusBar style="auto" />
-    </View>
+    </SafeAreaView>
+    // </View>
   );
 }
 
@@ -51,4 +61,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+  image: {
+    height: 100,
+    // width: undefined,
+    // aspectRatio: 1/1,
+    // resizeMode: 'stretch',
+    // resizeMode: 'cover',
+    resizeMode: 'contain',
+
+  }
 });
