@@ -12,9 +12,9 @@
 // Cmd + m for developer menu
 // On physical phone, shake for developer menu
 
-import { StatusBar } from "expo-status-bar";
+// import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, View, SafeAreaView, Image, TouchableWithoutFeedback, TouchableOpacity, TouchableHighlight, TouchableNativeFeedback, Button, Alert } from "react-native";
+import { StyleSheet, Text, View, SafeAreaView, Image, TouchableWithoutFeedback, TouchableOpacity, TouchableHighlight, TouchableNativeFeedback, Button, Alert, Platform, StatusBar } from "react-native";
 
 export default function App() {
   console.log("App executed :)..."); // Shows in terminal where app is running (once for each virtual emulator) - can also click on the devide in localhost:19002 to see the logs
@@ -43,10 +43,11 @@ export default function App() {
       //  <SafeAreaView style={{ backgroundColor: "dodgerblue" }}>
       //  <SafeAreaView style={containerStyle}>
       // Object on right overwrites properties of object on left
+      // SafeAreaView only works on iOS, has no effect on Android - add padding manually @ top (Platform module) - Actually, I think it does work on Android...
        <SafeAreaView style={[styles.container, containerStyle]}>
         {/* Buttons have different defaults (e.g., colour) on Android/iOS; changing "color" changes background on Android and text on iOS */}
         <Button 
-          color="orange"
+          color="rebeccapurple"
           title="Click Me" 
           // onPress={() => console.log("Button clicked")}
           // onPress={() => alert("Button clicked!!")}
@@ -74,8 +75,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    // alignItems: "center",
+    // justifyContent: "center",
+    // Bring up property options: Fn + Ctrl + Space
+    // paddingTop: Platform.OS === "android" ? 20 : 0, // not needed?
+    // paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0, // not needed?
   },
   image: {
     height: 100,
