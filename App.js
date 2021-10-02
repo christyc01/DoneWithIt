@@ -14,7 +14,7 @@
 
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, View, SafeAreaView, Image, TouchableWithoutFeedback, TouchableOpacity, TouchableHighlight, TouchableNativeFeedback } from "react-native";
+import { StyleSheet, Text, View, SafeAreaView, Image, TouchableWithoutFeedback, TouchableOpacity, TouchableHighlight, TouchableNativeFeedback, Button } from "react-native";
 
 export default function App() {
   console.log("App executed :)..."); // Shows in terminal where app is running (once for each virtual emulator) - can also click on the devide in localhost:19002 to see the logs
@@ -39,12 +39,46 @@ export default function App() {
   // console.log(require('./assets/rainbow.jpeg')) // prints a #, which is the reference to the image
 
   return (
-    // Can use View or SafeAreaView (avoids the phone notch area)
+       <SafeAreaView style={styles.container}>
+        {/* Buttons have different defaults (e.g., colour) on Android/iOS; changing "color" changes background on Android and text on iOS */}
+        <Button 
+          color="orange"
+          title="Click Me" 
+          onPress={() => console.log("Button clicked")}
+        />
+       </SafeAreaView>
+
+  );
+}
+
+// This isn't CSS; they're just JS properties
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  image: {
+    height: 100,
+    // width: undefined,
+    // aspectRatio: 1/1,
+    // resizeMode: 'stretch',
+    // resizeMode: 'cover',
+    resizeMode: 'contain',
+
+  }
+});
+
+
+// TEXT/IMAGES/TOUCHABLES - MOVED DOWN TO UNCLUTTER THE MAIN CODE BLOCK
+   // Can use View or SafeAreaView (avoids the phone notch area)
     // <View style={styles.container}>
-    <SafeAreaView style={styles.container}>
-      <Text numberOfLines={1} onPress={handlePress}>
-      {/* <Text numberOfLines={1} onPress={() => console.log("Text clicked")}> */}
-        Hello World!!! Time to learn! Hello World!!! Time to learn! Hello World!!! Time to learn! Hello World!!! Time to learn! Hello World!!! Time to learn! Hello World!!! Time to learn! Hello World!!! Time to learn! Hello World!!! Time to learn! Hello World!!! Time to learn! Hello World!!! Time to learn!</Text>
+    // <SafeAreaView style={styles.container}>
+    //   <Text numberOfLines={1} onPress={handlePress}>
+    //   {/* <Text numberOfLines={1} onPress={() => console.log("Text clicked")}> */}
+    //     Hello World!!! Time to learn! Hello World!!! Time to learn! Hello World!!! Time to learn! Hello World!!! Time to learn! Hello World!!! Time to learn! Hello World!!! Time to learn! Hello World!!! Time to learn! Hello World!!! Time to learn! Hello World!!! Time to learn! Hello World!!! Time to learn!</Text>
+
 {/* IMAGES */}
         {/* Best to only use static images for assets that need to be shipped with the app, like icon/splash screen - otherwise, download */}
         {/* <Image source={require('./assets/rainbow.jpeg')} style={styles.image} /> */}
@@ -78,27 +112,6 @@ export default function App() {
 
         </TouchableNativeFeedback> */}
 
-      <StatusBar style="auto" />
-    </SafeAreaView>
+    //   <StatusBar style="auto" />
+    // </SafeAreaView>
     // </View>
-  );
-}
-
-// This isn't CSS; they're just JS properties
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  image: {
-    height: 100,
-    // width: undefined,
-    // aspectRatio: 1/1,
-    // resizeMode: 'stretch',
-    // resizeMode: 'cover',
-    resizeMode: 'contain',
-
-  }
-});
