@@ -14,7 +14,7 @@
 
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, View, SafeAreaView, Image } from "react-native";
+import { StyleSheet, Text, View, SafeAreaView, Image, TouchableWithoutFeedback, TouchableOpacity, TouchableHighlight, TouchableNativeFeedback } from "react-native";
 
 export default function App() {
   console.log("App executed :)..."); // Shows in terminal where app is running (once for each virtual emulator) - can also click on the devide in localhost:19002 to see the logs
@@ -34,7 +34,7 @@ export default function App() {
   // From Metro Bundler or from Terminal - "expo publish"
 
   // let x = 1;
-  const handlePress = () => console.log("Pressed it")
+  const handlePress = () => console.log("Pressed the text")
 
   // console.log(require('./assets/rainbow.jpeg')) // prints a #, which is the reference to the image
 
@@ -45,8 +45,39 @@ export default function App() {
       <Text numberOfLines={1} onPress={handlePress}>
       {/* <Text numberOfLines={1} onPress={() => console.log("Text clicked")}> */}
         Hello World!!! Time to learn! Hello World!!! Time to learn! Hello World!!! Time to learn! Hello World!!! Time to learn! Hello World!!! Time to learn! Hello World!!! Time to learn! Hello World!!! Time to learn! Hello World!!! Time to learn! Hello World!!! Time to learn! Hello World!!! Time to learn!</Text>
+{/* IMAGES */}
         {/* Best to only use static images for assets that need to be shipped with the app, like icon/splash screen - otherwise, download */}
-        <Image source={require('./assets/rainbow.jpeg')} style={styles.image} />
+        {/* <Image source={require('./assets/rainbow.jpeg')} style={styles.image} /> */}
+        {/* Need to manually specify dimensions for network images (linked from internet) */}
+
+{/* TOUCHABLES */}
+        {/* <TouchableWithoutFeedback */}
+        {/* <TouchableOpacity */}
+
+        {/* <TouchableHighlight
+          onPress={() => console.log("image tapped")}
+        >
+          <Image 
+            blurRadius={3}
+            source={{ 
+              width: 200,
+              height: 300,
+              uri: "https://picsum.photos/200/300" 
+            }} 
+            /> 
+        </TouchableHighlight> */}
+
+        {/* </TouchableOpacity> */}
+        {/* </TouchableWithoutFeedback> */}
+
+{/* ANDROID - TOUCHABLE NATIVE FEEDBACK */}
+        {/* Only for Android, but the coloured block appears on both.. the native feedback effect (darkening when clicked) only works for Android here, though */}
+        {/* <TouchableNativeFeedback onPress={() => console.log("TNF is only for Android")}>
+          <View style={{ width: 200, height: 70, backgroundColor: "yellow"}}>
+          </View>
+
+        </TouchableNativeFeedback> */}
+
       <StatusBar style="auto" />
     </SafeAreaView>
     // </View>
