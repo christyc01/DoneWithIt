@@ -103,7 +103,13 @@ export default function App() {
           style={{
             backgroundColor: "dodgerblue",
             // flex: 2,
-            width: 100,
+            // flexBasis: 100, // primary axis (same as width/height: 100)
+            // flexGrow: 1,
+            // flex: 1,
+            width: 400,
+            // flexShrink: 1, // Same as flex: -1, but doesn't seem to be working like Mosh showed..  *** Look into this.
+            flex: -1,
+            // width: 100,
             height: 100,
             // alignSelf: "flex-start"
           }}
@@ -124,22 +130,22 @@ export default function App() {
             height: 100
           }}
         />
-        <View 
+        {/* <View 
           style={{
             backgroundColor: "grey",
             // flex: 1
             width: 100,
             height: 100
           }}
-        />
-        <View 
+        /> */}
+        {/* <View 
           style={{
             backgroundColor: "greenyellow",
             // flex: 1
             width: 100,
             height: 100
           }}
-        />
+        /> */}
       </View>
     </SafeAreaView>
   );
