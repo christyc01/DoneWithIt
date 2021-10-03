@@ -94,8 +94,9 @@ export default function App() {
         flex: 1, // Flex 1 grows to fill available free space
         flexDirection: "row",
         justifyContent: "center", // main axis
-        alignItems: "center", // secondary axis
-
+        alignItems: "center", // secondary axis (within one line)
+        alignContent: "center", // need this if it's going to be wrapped on multiple lines
+        flexWrap: "wrap"
       }}>
         {/* <Text>hi</Text> */}
         <View 
@@ -103,8 +104,8 @@ export default function App() {
             backgroundColor: "dodgerblue",
             // flex: 2,
             width: 100,
-            height: 300,
-            alignSelf: "flex-start"
+            height: 100,
+            // alignSelf: "flex-start"
           }}
         />
         <View 
@@ -112,12 +113,28 @@ export default function App() {
             backgroundColor: "gold",
             // flex: 1
             width: 100,
-            height: 200
+            height: 100
           }}
         />
         <View 
           style={{
             backgroundColor: "tomato",
+            // flex: 1
+            width: 100,
+            height: 100
+          }}
+        />
+        <View 
+          style={{
+            backgroundColor: "grey",
+            // flex: 1
+            width: 100,
+            height: 100
+          }}
+        />
+        <View 
+          style={{
+            backgroundColor: "greenyellow",
             // flex: 1
             width: 100,
             height: 100
