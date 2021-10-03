@@ -92,7 +92,10 @@ export default function App() {
 
         // FLEXBOX
         flex: 1, // Flex 1 grows to fill available free space
-        flexDirection: "row"
+        flexDirection: "row",
+        justifyContent: "center", // main axis
+        alignItems: "center", // secondary axis
+
       }}>
         {/* <Text>hi</Text> */}
         <View 
@@ -100,7 +103,8 @@ export default function App() {
             backgroundColor: "dodgerblue",
             // flex: 2,
             width: 100,
-            height: 100
+            height: 300,
+            alignSelf: "flex-start"
           }}
         />
         <View 
@@ -108,7 +112,7 @@ export default function App() {
             backgroundColor: "gold",
             // flex: 1
             width: 100,
-            height: 100
+            height: 200
           }}
         />
         <View 
