@@ -74,22 +74,51 @@ export default function App() {
 // Layouts
     <SafeAreaView style={styles.container}>
       <View style={{
-        backgroundColor: 'dodgerblue',
+        // backgroundColor: 'dodgerblue',
+        backgroundColor: 'white',
         // #s = Density-Independent Pixels (abstract units; not pixels) - this means they'll look almost the same size across different devices
         // width: 150,
         // width: "50%",
-        width: "100%",
+        // width: "100%",
         // height: 70
         // height: "30%"
-        height: landscape ? "100%" : "30%",
+        // height: landscape ? "100%" : "30%",
         // Can use Dimensions API to fine-tune the size of a component according to the size of a screen
         // "Window" is a bit smaller than screen on Android (only the visible part); they're the same on iOS
         // This API doesn't respond to orientation changes
         // To change orientation, Cmd + L/R arrow
         // Go to app.json, change from "orientation": "portrait" to "default", to support both orientations
         // To detect screen orientation, use library "hooks" from react-native-community ("npm i @react-native-community/hooks"), import "useDimensions" and "useDeviceOrientation"
+
+        // FLEXBOX
+        flex: 1, // Flex 1 grows to fill available free space
+        flexDirection: "row"
       }}>
-        <Text>hi</Text>
+        {/* <Text>hi</Text> */}
+        <View 
+          style={{
+            backgroundColor: "dodgerblue",
+            // flex: 2,
+            width: 100,
+            height: 100
+          }}
+        />
+        <View 
+          style={{
+            backgroundColor: "gold",
+            // flex: 1
+            width: 100,
+            height: 100
+          }}
+        />
+        <View 
+          style={{
+            backgroundColor: "tomato",
+            // flex: 1
+            width: 100,
+            height: 100
+          }}
+        />
       </View>
     </SafeAreaView>
   );
