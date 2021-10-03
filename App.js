@@ -51,7 +51,7 @@ export default function App() {
       //  <SafeAreaView style={{ backgroundColor: "dodgerblue" }}>
       //  <SafeAreaView style={containerStyle}>
       // Object on right overwrites properties of object on left
-      // SafeAreaView only works on iOS, has no effect on Android - add padding manually @ top (Platform module) - Actually, I think it does work on Android...
+      // SafeAreaView only works on iOS, has no effect on Android - add padding manually @ top (Platform module)
       //  <SafeAreaView style={[styles.container, containerStyle]}>
       //   {/* Buttons have different defaults (e.g., colour) on Android/iOS; changing "color" changes background on Android and text on iOS */}
       //   <Button 
@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
     // justifyContent: "center",
     // Bring up property options: Fn + Ctrl + Space
     // paddingTop: Platform.OS === "android" ? 20 : 0, // not needed?
-    // paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0, // not needed?
+    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0, 
   },
   image: {
     height: 100,
