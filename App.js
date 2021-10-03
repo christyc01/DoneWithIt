@@ -15,6 +15,7 @@
 // import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { StyleSheet, Text, View, SafeAreaView, Image, TouchableWithoutFeedback, TouchableOpacity, TouchableHighlight, TouchableNativeFeedback, Button, Alert, Platform, StatusBar, Dimensions } from "react-native";
+import { useDimensions, useDeviceOrientation } from '@react-native-community/hooks';
 
 export default function App() {
   console.log("App executed :)..."); // Shows in terminal where app is running (once for each virtual emulator) - can also click on the devide in localhost:19002 to see the logs
@@ -38,7 +39,11 @@ export default function App() {
 
   // console.log(require('./assets/rainbow.jpeg')) // prints a #, which is the reference to the image
 
-  console.log(Dimensions.get("screen"));
+  // console.log(Dimensions.get("screen"));
+  // console.log(useDimensions());
+  // console.log(useDeviceOrientation());
+  // const orientation = useDeviceOrientation();
+  const {landscape} = useDeviceOrientation();
 
 
   return (
@@ -72,11 +77,17 @@ export default function App() {
         backgroundColor: 'dodgerblue',
         // #s = Density-Independent Pixels (abstract units; not pixels) - this means they'll look almost the same size across different devices
         // width: 150,
-        width: "50%",
-        height: 70
+        // width: "50%",
+        width: "100%",
+        // height: 70
+        // height: "30%"
+        height: landscape ? "100%" : "30%",
         // Can use Dimensions API to fine-tune the size of a component according to the size of a screen
         // "Window" is a bit smaller than screen on Android (only the visible part); they're the same on iOS
         // This API doesn't respond to orientation changes
+        // To change orientation, Cmd + L/R arrow
+        // Go to app.json, change from "orientation": "portrait" to "default", to support both orientations
+        // To detect screen orientation, use library "hooks" from react-native-community ("npm i @react-native-community/hooks"), import "useDimensions" and "useDeviceOrientation"
       }}>
         <Text>hi</Text>
       </View>
